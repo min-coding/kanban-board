@@ -1,38 +1,141 @@
+* {
+  font-family: 'Sofia Pro', sans-serif;
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn-container{
+  align-self: flex-end;
+  margin: 2em;
+  position: fixed;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.addBtn {
+  background-color: #417D7A;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 15px 45px rgb(16 30 54 / 15%);
+  font-size: 1.25rem;
+  color: white;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.addBtn:hover {
+
+}
+
+.board{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.modal {
+  min-width: 100px;
+  height: 170px;
+  background: blueviolet;
+  color: white;
+  z-index: 10;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+/* Dont forget media queries */
+
+.category-group {
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin:0 0.5em;
+  width: 100%;
+  background-color: antiquewhite;
 }
 
-.App-link {
-  color: #61dafb;
+.category-title {
+  padding: 2em 2em 1em 2em;
+  font-size: 1.25rem;
+  text-align: center;
+  color: azure;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.red-bg{
+  background-color: #E2445B;
+}
+
+.yellow-bg{
+  background-color: #FDAB3D;
+}
+
+.olive-bg{
+  background-color:#93ad3b ;
+}
+
+.green-bg{
+  background-color: #27C875;
+}
+
+.category-list{
+
+}
+
+.task-note{
+  margin: 1em;
+  padding: 1rem;
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.task-title,.task-content{
+  outline: none;
+  border: none;
+  resize: none;
+}
+
+.task-title{
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.task-content{
+  font-size: 1rem;
+}
+
+.deleteBtn{
+  width: 15%;
+  align-self: flex-end;
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+
+.deleteBtn:hover{
+  opacity: 1;
 }
