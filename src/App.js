@@ -11,6 +11,7 @@ function App() {
   const [tasks, setTasks] = React.useState(() => {
     const savedValue = JSON.parse(localStorage.getItem('tasks'))
 
+    
     if (savedValue) {
       return savedValue
     }
