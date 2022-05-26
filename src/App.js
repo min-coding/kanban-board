@@ -27,24 +27,26 @@ function App() {
   const [isOpen, setIsOpen] = React.useState(false)
   const [dragData, setDragData] = React.useState({})
 
-  function toggleModal() {
-    setIsOpen(prev => !prev)
+  function toggleModal(category) {
+    console.log(category)
+  
   }
 
-function handleChange(event) {
-    const { name, value } = event.target
+function handleChange(category,e) {
+    const { name, value } = e.target
     const uniqueID = nanoid()
     setInput(prev => {
       return (
         {
           ...prev,
           id: uniqueID,
-          category: 'To-Do',
+          category: category,
           [name]: value,
         }
       )
     })
-  }
+}
+  // console.log(input)
 
   function addTask() {
     setTasks(prev => [...prev, input])
@@ -103,7 +105,6 @@ const currentDate = new Date().toDateString()
       <header className='app-header'>
         <h1>
           Your Kanban board
-          hello hey test commit 
         </h1>
         <p>{currentDate} </p>
       </header>
@@ -147,27 +148,19 @@ const currentDate = new Date().toDateString()
                 <img className='deleteBtn' onClick={() => deleteTask(task.id)} src={trashDefault}/>
             </div>
             )
-      })}
-        </div>
-    </div>
-    </>
-          )
-        })}
-      </div>
-      <div className='btn-container'>
+            })}
 
-      <button className="addBtn" onClick={toggleModal}> + </button>
-      </div>
-      {/* Modal div */}
-      {isOpen &&
-        <div className='overlay'>
-        <div className='modal'>
+                </div>
+                {/* {isOpen && */}
+        {/* <div className='overlay'> */}
+                {/* <div className='modal'> */}
+            <div id={category} className='note-form'>    
             <input
               name='title'
               className="modal-title"
               type="text"
               placeholder="Title"
-              onChange={handleChange}
+              onChange={(e)=>handleChange(category,e)}
               value={input.title||''}
               >
             </input>
@@ -176,15 +169,26 @@ const currentDate = new Date().toDateString()
               className="modal-content"
               type="text"
               placeholder="Take a note"
-              onChange={handleChange}
+              onChange={(e)=>handleChange(category,e)}
               value={input.content||''}
               >
-            </input>
+                      </input>
               <button type='submit' onClick={addTask}> Submit </button>
-              <button onClick={() => {setIsOpen(false) }}> Close </button>
-          </div>
+                <button onClick={() => { setIsOpen(false) }}> Close </button>
+            </div>
+          {/* </div> */}
+                  {/* </div> */}
+                  
+                 {/* } */}
+          <button key={category} className="addBtn" onClick={()=>toggleModal(category)}> + </button>
+      
+    </div>
+    </>
+          )
+        })}
       </div>
-      }
+      
+      
 
     </div>
   );

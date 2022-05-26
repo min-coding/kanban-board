@@ -11,11 +11,11 @@
   text-align: center;
 }
 
-.btn-container{
+/* .btn-container{
   align-self: flex-end;
   margin: 2em;
   position: fixed;
-}
+} */
 
 .addBtn {
   background-color: #417D7A;
