@@ -1,8 +1,5 @@
-import './App.css';
-import TaskPanel from './components/TaskPanel';
 import { nanoid } from 'nanoid'
 import React from 'react';
-// import trashDefault from '../src/assets/trash-icon-default.png'
 import Group from './components/Group';
 
 function App() {
@@ -43,7 +40,8 @@ function handleChange(category,e) {
     setTasks(prev => [...prev, input])
     setInput({
       title: '',
-      content: ''
+      content: '',
+      staff:''
     })
   }
 
@@ -56,7 +54,6 @@ function handleChange(category,e) {
               [name]:value
             } : task
         })
-
     setTasks(updateTask)
   }
 
@@ -112,7 +109,6 @@ const currentDate = new Date().toDateString()
                 handleDragOver={handleDragOver}
                 handleDrop={handleDrop}
                 input={input}
-                // changeCategory={changeCategory}
                 addTask={addTask}
                 editTask={editTask}
                 deleteTask={deleteTask}
@@ -122,8 +118,6 @@ const currentDate = new Date().toDateString()
         })}
       </div>
       
-      
-
     </div>
   );
 }
